@@ -17,12 +17,7 @@ export default function Home() {
           Simple Table Component
         </h1>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            User Data
-          </h2>
-          <Table columns={columns} data={data} />
-        </div>
+        <Table columns={columns} data={data} />
 
         <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">
