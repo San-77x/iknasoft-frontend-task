@@ -1,4 +1,5 @@
 import React from "react";
+import { Badge } from "./ui/badge";
 
 interface TableColumn {
   key: string;
@@ -17,14 +18,22 @@ interface TableProps {
 
 const Table: React.FC<TableProps> = ({ columns, data, className = "" }) => {
   return (
-    <div className={`overflow-x-auto ${className}`}>
-      <table className="min-w-full border-collapse border border-gray-300 bg-white shadow-sm">
-        <thead className="bg-gray-50">
-          <tr>
+    <div
+      className={`overflow-x-auto bg-white border border-gray-200 rounded-2xl ${className}`}
+    >
+      <div className="flex space-x-2 items-center">
+        <h2 className="text-xl pl-6 py-6 font-semibold text-gray-800">
+          User Details
+        </h2>
+        <Badge variant="secondary">100</Badge>
+      </div>
+      <table className="min-w-full overflow-hidden">
+        <thead>
+          <tr className="bg-[#f4f4fb]">
             {columns.map((column) => (
               <th
                 key={column.key}
-                className="border border-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-900"
+                className="px-6 py-3 text-left text-sm text-gray-400"
               >
                 {column.header}
               </th>
@@ -35,14 +44,12 @@ const Table: React.FC<TableProps> = ({ columns, data, className = "" }) => {
           {data.map((row, index) => (
             <tr
               key={index}
-              className={`${
-                index % 2 === 0 ? "bg-white" : "bg-gray-50"
-              } hover:bg-blue-50 transition-colors`}
+              className="hover:bg-gray-50 transition-colors bg-white"
             >
               {columns.map((column) => (
                 <td
                   key={column.key}
-                  className="border border-gray-300 px-4 py-3 text-sm text-gray-700"
+                  className="border-y border-gray-200 px-6 py-4 text-sm text-gray-700"
                 >
                   {row[column.key]}
                 </td>
