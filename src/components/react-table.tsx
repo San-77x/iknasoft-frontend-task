@@ -2,22 +2,8 @@
 import { useTheme } from "@table-library/react-table-library/theme";
 import { getTheme } from "@table-library/react-table-library/baseline";
 import { Badge } from "@/components/ui/badge";
-import {
-  Table,
-  Header,
-  HeaderRow,
-  Body,
-  Row,
-  HeaderCell,
-  Cell,
-} from "@table-library/react-table-library/table";
 
-interface TableColumn {
-  key: string;
-  header: string;
-}
-
-interface TableRow {
+interface UserNode {
   id: number;
   name: string;
   email: string;
@@ -25,12 +11,51 @@ interface TableRow {
   city: string;
 }
 
-interface TableProps {
-  columns: TableColumn[];
-  data: TableRow[];
-}
+import {
+  Table,
+  Header,
+  HeaderRow,
+  Body,
+  Row,
+  Cell,
+} from "@table-library/react-table-library/table";
 
-const ReactTable: React.FC<TableProps> = ({ columns, data }: TableProps) => {
+import {
+  useSort,
+  HeaderCellSort,
+  SortToggleType,
+} from "@table-library/react-table-library/sort";
+import { nodes } from "@/app/sample-data";
+
+const ReactTable = () => {
+  const data = { nodes };
+
+  function onSortChange(action: unknown, state: unknown) {
+    console.log(action, state);
+  }
+
+  const sort = useSort(
+    data,
+    {
+      onChange: onSortChange,
+    },
+    {
+      sortToggleType: SortToggleType.AlternateWithReset,
+      sortFns: {
+        ID: (array: unknown) =>
+          (array as UserNode[]).sort((a, b) => a.id - b.id),
+        NAME: (array: unknown) =>
+          (array as UserNode[]).sort((a, b) => a.name.localeCompare(b.name)),
+        EMAIL: (array: unknown) =>
+          (array as UserNode[]).sort((a, b) => a.email.localeCompare(b.email)),
+        AGE: (array: unknown) =>
+          (array as UserNode[]).sort((a, b) => a.age - b.age),
+        CITY: (array: unknown) =>
+          (array as UserNode[]).sort((a, b) => a.city.localeCompare(b.city)),
+      },
+    },
+  );
+
   const theme = useTheme([
     getTheme(),
     {
@@ -68,23 +93,25 @@ const ReactTable: React.FC<TableProps> = ({ columns, data }: TableProps) => {
           </h2>
           <Badge variant="secondary">100</Badge>
         </div>
-        <Table data={{ nodes: data }} theme={theme}>
-          {(tableList: TableRow[]) => (
+        <Table data={data} theme={theme} sort={sort}>
+          {(tableList: UserNode[]) => (
             <>
               <Header>
                 <HeaderRow>
-                  {columns.map((item) => (
-                    <HeaderCell key={item.key}>{item.header}</HeaderCell>
-                  ))}
+                  <HeaderCellSort sortKey="ID">ID</HeaderCellSort>
+                  <HeaderCellSort sortKey="NAME">Name</HeaderCellSort>
+                  <HeaderCellSort sortKey="EMAIL">Email</HeaderCellSort>
+                  <HeaderCellSort sortKey="AGE">Age</HeaderCellSort>
+                  <HeaderCellSort sortKey="CITY">City</HeaderCellSort>
                 </HeaderRow>
               </Header>
 
               <Body>
-                {tableList.map((item: TableRow) => (
+                {tableList.map((item: UserNode) => (
                   <Row key={item.id} item={item}>
                     <Cell>{item.id}</Cell>
                     <Cell>{item.name}</Cell>
-                    <Cell>{item.email.toString()}</Cell>
+                    <Cell>{item.email}</Cell>
                     <Cell>{item.age}</Cell>
                     <Cell>{item.city}</Cell>
                   </Row>
