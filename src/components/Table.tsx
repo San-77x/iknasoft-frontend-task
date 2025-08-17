@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
 import { Badge } from "./ui/badge";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface TableColumn {
   key: string;
@@ -39,39 +37,6 @@ const Table: React.FC<TableProps> = ({
     setCurrentPage((prev) => Math.min(totalPages, prev + 1));
   };
 
-  const handlePageClick = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  const getVisiblePages = () => {
-    const delta = 2;
-    const range = [];
-    const rangeWithDots = [];
-
-    for (
-      let i = Math.max(2, currentPage - delta);
-      i <= Math.min(totalPages - 1, currentPage + delta);
-      i++
-    ) {
-      range.push(i);
-    }
-
-    if (currentPage - delta > 2) {
-      rangeWithDots.push(1, "...");
-    } else {
-      rangeWithDots.push(1);
-    }
-
-    rangeWithDots.push(...range);
-
-    if (currentPage + delta < totalPages - 1) {
-      rangeWithDots.push("...", totalPages);
-    } else if (totalPages > 1) {
-      rangeWithDots.push(totalPages);
-    }
-
-    return rangeWithDots;
-  };
   return (
     <div
       className={`overflow-x-auto w-full bg-white border border-gray-200 rounded-2xl ${className}`}
@@ -113,7 +78,7 @@ const Table: React.FC<TableProps> = ({
           ))}
         </tbody>
         <tfoot>
-          <tr className="bg-gray-50/50">
+          <tr className="bg-white">
             <td colSpan={columns.length} className="px-6 py-4">
               <div className="flex items-center justify-between">
                 <div className="text-sm text-gray-600">
@@ -131,38 +96,8 @@ const Table: React.FC<TableProps> = ({
                     className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-gray-500 transition-colors duration-200"
                     aria-label="Go to previous page"
                   >
-                    <ArrowLeft className="w-4 h-4 mr-1" />
                     Previous
                   </button>
-
-                  <nav className="flex space-x-1" aria-label="Pagination">
-                    {getVisiblePages().map((page, index) => (
-                      <React.Fragment key={index}>
-                        {page === "..." ? (
-                          <span className="px-3 py-2 text-sm text-gray-500">
-                            ...
-                          </span>
-                        ) : (
-                          <button
-                            type="button"
-                            onClick={() => handlePageClick(page as number)}
-                            className={[
-                              "px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200",
-                              page === currentPage
-                                ? "bg-blue-600 text-white shadow-sm"
-                                : "text-gray-700 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-900",
-                            ].join(" ")}
-                            aria-label={`Go to page ${page}`}
-                            aria-current={
-                              page === currentPage ? "page" : undefined
-                            }
-                          >
-                            {page}
-                          </button>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </nav>
 
                   <button
                     type="button"
@@ -172,7 +107,6 @@ const Table: React.FC<TableProps> = ({
                     aria-label="Go to next page"
                   >
                     Next
-                    <ArrowRight className="w-4 h-4 ml-1" />
                   </button>
                 </div>
               </div>
