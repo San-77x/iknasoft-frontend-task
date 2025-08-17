@@ -29,6 +29,11 @@ const Table: React.FC<TableProps> = ({
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
+  // Calculate the data slice for the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageData = data.slice(startIndex, endIndex);
+
   const handlePreviousPage = () => {
     setCurrentPage((prev) => Math.max(1, prev - 1));
   };
@@ -61,7 +66,7 @@ const Table: React.FC<TableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
+          {currentPageData.map((row, index) => (
             <tr
               key={index}
               className="hover:bg-gray-50 transition-colors bg-white"
@@ -114,6 +119,11 @@ const Table: React.FC<TableProps> = ({
           </tr>
         </tfoot>
       </table>
+      {currentPageData.length === 0 && data.length > 0 && (
+        <div className="text-center py-8 text-gray-500">
+          No data available for this page
+        </div>
+      )}
       {data.length === 0 && (
         <div className="text-center py-8 text-gray-500">No data available</div>
       )}
