@@ -28,16 +28,9 @@ interface TableRow {
 interface TableProps {
   columns: TableColumn[];
   data: TableRow[];
-  itemsPerPage?: number;
-  totalItems?: number;
 }
 
-const ReactTable: React.FC<TableProps> = ({
-  columns,
-  data,
-  itemsPerPage = 10,
-  totalItems = data.length,
-}: TableProps) => {
+const ReactTable: React.FC<TableProps> = ({ columns, data }: TableProps) => {
   const theme = useTheme([
     getTheme(),
     {
