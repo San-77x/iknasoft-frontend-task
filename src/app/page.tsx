@@ -18,29 +18,6 @@ export default function Home() {
         </h1>
 
         <Table columns={columns} data={data} />
-
-        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            How to Use This Table
-          </h2>
-          <div className="prose text-gray-600">
-            <p className="mb-4">This table component accepts two main props:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>
-                <strong>columns:</strong> An array of objects defining the table
-                structure
-              </li>
-              <li>
-                <strong>data:</strong> An array of objects containing the actual
-                data
-              </li>
-            </ul>
-            <p className="mt-4">
-              The table includes features like alternating row colors, hover
-              effects, responsive design, and automatic empty state handling.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
