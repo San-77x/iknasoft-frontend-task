@@ -1,4 +1,4 @@
-export const data = [
+export const nodes = [
   {
     id: 1,
     name: "John Doe",
