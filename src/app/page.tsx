@@ -1,5 +1,6 @@
 import Table from "@/components/Table";
 import { data } from "./sample-data";
+import ReactTable from "@/components/react-table";
 
 export default function Home() {
   // Sample data for the table
@@ -16,8 +17,8 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
           Simple Table Component
         </h1>
-
-        <Table columns={columns} data={data} />
+        {/*<Table columns={columns} data={data} />*/}
+        <ReactTable columns={columns} data={data} />
       </div>
     </div>
   );
