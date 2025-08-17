@@ -110,11 +110,21 @@ const ReactTable = () => {
             <>
               <Header>
                 <HeaderRow>
-                  <HeaderCellSort sortKey="ID">ID</HeaderCellSort>
-                  <HeaderCellSort sortKey="NAME">Name</HeaderCellSort>
-                  <HeaderCellSort sortKey="EMAIL">Email</HeaderCellSort>
-                  <HeaderCellSort sortKey="AGE">Age</HeaderCellSort>
-                  <HeaderCellSort sortKey="CITY">City</HeaderCellSort>
+                  <HeaderCellSort resize sortKey="ID">
+                    ID
+                  </HeaderCellSort>
+                  <HeaderCellSort resize sortKey="NAME">
+                    Name
+                  </HeaderCellSort>
+                  <HeaderCellSort resize sortKey="EMAIL">
+                    Email
+                  </HeaderCellSort>
+                  <HeaderCellSort resize sortKey="AGE">
+                    Age
+                  </HeaderCellSort>
+                  <HeaderCellSort resize sortKey="CITY">
+                    City
+                  </HeaderCellSort>
                 </HeaderRow>
               </Header>
 
