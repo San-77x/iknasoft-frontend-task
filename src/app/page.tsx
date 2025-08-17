@@ -1,4 +1,3 @@
-import Table from "@/components/Table";
 import { data } from "./sample-data";
 import ReactTable from "@/components/react-table";
 
