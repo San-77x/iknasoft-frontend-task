@@ -24,8 +24,10 @@ import {
   useSort,
   HeaderCellSort,
   SortToggleType,
+  SortIconPositions,
 } from "@table-library/react-table-library/sort";
 import { nodes } from "@/app/sample-data";
+import { ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
 
 const ReactTable = () => {
   const data = { nodes };
@@ -39,6 +41,7 @@ const ReactTable = () => {
     {
       onChange: onSortChange,
     },
+
     {
       sortToggleType: SortToggleType.AlternateWithReset,
       sortFns: {
@@ -52,6 +55,15 @@ const ReactTable = () => {
           (array as UserNode[]).sort((a, b) => a.age - b.age),
         CITY: (array: unknown) =>
           (array as UserNode[]).sort((a, b) => a.city.localeCompare(b.city)),
+      },
+
+      sortIcon: {
+        size: "16",
+        margin: "4px",
+        position: SortIconPositions.Prefix,
+        iconDefault: <ChevronsUpDown />,
+        iconUp: <ChevronUp />,
+        iconDown: <ChevronDown />,
       },
     },
   );
