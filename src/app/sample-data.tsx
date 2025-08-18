@@ -5,6 +5,7 @@ export const nodes = [
     email: "john@example.com",
     age: 28,
     city: "New York",
+    address: "Hellow",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const nodes = [
     email: "jane@example.com",
     age: 32,
     city: "Los Angeles",
+    address: "Hellow",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const nodes = [
     email: "mike@example.com",
     age: 25,
     city: "Chicago",
+    address: "Hellow",
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const nodes = [
     email: "sarah@example.com",
     age: 29,
     city: "Houston",
+    address: "Hellow",
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const nodes = [
     email: "david@example.com",
     age: 35,
     city: "Phoenix",
+    address: "Hellow",
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const nodes = [
     email: "john@example.com",
     age: 28,
     city: "New York",
+    address: "Hellow",
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const nodes = [
     email: "jane@example.com",
     age: 32,
     city: "Los Angeles",
+    address: "Hellow",
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const nodes = [
     email: "mike@example.com",
     age: 25,
     city: "Chicago",
+    address: "Hellow",
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export const nodes = [
     email: "sarah@example.com",
     age: 29,
     city: "Houston",
+    address: "Hellow",
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ export const nodes = [
     email: "david@example.com",
     age: 35,
     city: "Phoenix",
+    address: "Hellow",
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ export const nodes = [
     email: "john@example.com",
     age: 28,
     city: "New York",
+    address: "Hellow",
   },
   {
     id: 12,
@@ -82,6 +93,7 @@ export const nodes = [
     email: "jane@example.com",
     age: 32,
     city: "Los Angeles",
+    address: "Hellow",
   },
   {
     id: 13,
@@ -89,6 +101,7 @@ export const nodes = [
     email: "mike@example.com",
     age: 25,
     city: "Chicago",
+    address: "Hellow",
   },
   {
     id: 14,
@@ -96,6 +109,7 @@ export const nodes = [
     email: "sarah@example.com",
     age: 29,
     city: "Houston",
+    address: "Hellow",
   },
   {
     id: 15,
@@ -103,5 +117,6 @@ export const nodes = [
     email: "david@example.com",
     age: 35,
     city: "Phoenix",
+    address: "Hellow",
   },
 ];
