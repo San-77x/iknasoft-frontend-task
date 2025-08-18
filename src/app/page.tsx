@@ -1,4 +1,7 @@
+"use client";
+
 import ReactTable from "@/components/react-table";
+import TanStackTable from "@/components/tanstack-table";
 
 export default function Home() {
   return (
@@ -8,7 +11,10 @@ export default function Home() {
           Simple Table Component
         </h1>
         {/*<Table columns={columns} data={data} />*/}
-        <ReactTable />
+        {/*<ReactTable />*/}
+        <div className="mt-8">
+          <TanStackTable />
+        </div>
       </div>
     </div>
   );
